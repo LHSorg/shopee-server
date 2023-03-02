@@ -2,9 +2,10 @@ import { IProductRepository } from "@app/domain/ports/product";
 import { Handler } from "./../../commons/handler";
 import { inject, injectable } from "tsyringe";
 import { Product } from "@app/domain/entities/product";
+import { CreateProduct } from "@app/commons/types";
 
 export type CreateProductsRequest = {
-  products: Product[];
+  products: CreateProduct[];
 };
 
 export type CreateProductsResponse = {

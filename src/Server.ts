@@ -1,6 +1,6 @@
+import "reflect-metadata";
 import { ProductRoutes } from "./routes/product";
 import { IProductRepository } from "@app/domain/ports/product";
-import "reflect-metadata";
 import cookieParser from "cookie-parser";
 import express, { Express } from "express";
 import { container } from "tsyringe";
