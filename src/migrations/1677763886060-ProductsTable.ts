@@ -1,4 +1,3 @@
-import { query } from "express";
 import { MigrationInterface, QueryRunner } from "typeorm";
 
 export class ProductsTable1677763886060 implements MigrationInterface {
@@ -6,6 +5,7 @@ export class ProductsTable1677763886060 implements MigrationInterface {
     queryRunner.query(
       `CREATE TABLE IF NOT EXISTS "Products" (
                 id SERIAL PRIMARY KEY,
+                name VARCHAR,
                 description VARCHAR,
                 images VARCHAR[],
                 price NUMERIC(7,2),
