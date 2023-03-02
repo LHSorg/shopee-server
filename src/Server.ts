@@ -1,3 +1,5 @@
+import { ProductRoutes } from "./routes/product";
+import { IProductRepository } from "@app/domain/ports/product";
 import "reflect-metadata";
 import cookieParser from "cookie-parser";
 import express, { Express } from "express";
@@ -9,11 +11,13 @@ import UserRoutes from "./routes/user";
 import errorMiddleware from "./middlewares/errorHandler";
 import { IUserRepository } from "./domain/ports/user";
 import { UserRepository } from "./repositories/user";
+import { ProductRepository } from "./repositories/product";
 
 export class ServerInit {
   public app: Express;
   private authRoutes: AuthRoutes;
   private userRouter: UserRoutes;
+  private productRoutes: ProductRoutes;
 
   constructor() {
     this.app = express();
@@ -29,10 +33,15 @@ export class ServerInit {
       "UserRepository",
       UserRepository
     );
+    container.registerSingleton<IProductRepository>(
+      "ProductRepository",
+      ProductRepository
+    );
   }
 
   private resolveDependencies() {
     this.authRoutes = container.resolve(AuthRoutes);
+    this.productRoutes = container.resolve(ProductRoutes);
     this.userRouter = new UserRoutes();
   }
 
@@ -45,6 +54,7 @@ export class ServerInit {
   }
 
   private initRouters() {
+    this.app.use("/shopee", this.productRoutes.router);
     this.app.use("/auth", this.authRoutes.router);
     this.app.use("/user", this.userRouter.router);
     this.app.get("/", (_req, res) => {

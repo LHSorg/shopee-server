@@ -10,7 +10,7 @@
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
     "sourceMap": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
       "@app/*": ["./src/*"]
     }
