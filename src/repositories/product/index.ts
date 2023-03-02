@@ -3,6 +3,7 @@ import { IProductRepository } from "@app/domain/ports/product";
 import { injectable } from "tsyringe";
 import { AppDataSource } from "@app/configs/DataSource";
 import { In } from "typeorm";
+import { CreateProduct } from "@app/commons/types";
 
 @injectable()
 export class ProductRepository implements IProductRepository {
@@ -11,8 +12,8 @@ export class ProductRepository implements IProductRepository {
   async listAllProducts(): Promise<Product[]> {
     return await this.repo.find();
   }
-  async createManyProducts(products: Product[]): Promise<Product[]> {
-    return await this.repo.save(products);
+  async createManyProducts(products: CreateProduct[]): Promise<Product[]> {
+    return await this.repo.save(this.repo.create(products));
   }
   async updateProduct(product: Product): Promise<void> {
     await this.repo.update({ id: product.id }, { ...product });

@@ -1,3 +1,4 @@
+import "module-alias/register";
 import * as dotenv from "dotenv";
 import { ServerInit } from "./Server";
 import { AppDataSource } from "./configs/DataSource";

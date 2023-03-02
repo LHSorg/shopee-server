@@ -23,7 +23,6 @@ export class ListProductsHandler
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async execute(_request: object): Promise<ListProductsResponse> {
     const products = await this.productRepo.listAllProducts();
-
     return { products, total: products.length };
   }
 }

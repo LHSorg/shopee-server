@@ -15,7 +15,6 @@ import { Router } from "express";
 import { inject, injectable } from "tsyringe";
 import { checkJwt } from "@app/middlewares/checkJwt";
 import { checkRole } from "@app/middlewares/checkRole";
-import { runInThisContext } from "vm";
 
 @injectable()
 export class ProductRoutes {
@@ -42,7 +41,6 @@ export class ProductRoutes {
     this.router.get("/products", async (req, res, next) => {
       try {
         const response = await this.listProductHandler.execute({});
-
         res.status(200).json(response);
       } catch (error) {
         next(error);
@@ -50,7 +48,7 @@ export class ProductRoutes {
     });
 
     this.router.post(
-      "products",
+      "/products",
       checkJwt,
       checkRole(["ADMIN"]),
       async (req, res, next) => {
@@ -67,7 +65,7 @@ export class ProductRoutes {
       }
     );
 
-    this.router.post(
+    this.router.put(
       "/products",
       checkJwt,
       checkRole(["ADMIN"]),
@@ -76,7 +74,7 @@ export class ProductRoutes {
           const { product }: UpdateProductRequest = req.body;
 
           await this.updateProductHandler.execute({ product });
-          res.status(204);
+          res.status(204).send();
         } catch (error) {
           next(error);
         }
@@ -89,10 +87,12 @@ export class ProductRoutes {
       checkRole(["ADMIN"]),
       async (req, res, next) => {
         try {
-          const { products_ids }: DeleteProductsRequest = req.body;
+          const { productsIds }: DeleteProductsRequest = req.body;
 
-          await this.deleteProductsHandler.execute({ products_ids });
-          res.status(204);
+          await this.deleteProductsHandler.execute({
+            productsIds,
+          });
+          res.status(204).send();
         } catch (error) {
           next(error);
         }

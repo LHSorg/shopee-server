@@ -3,7 +3,7 @@ import { Handler } from "./../../commons/handler";
 import { inject, injectable } from "tsyringe";
 
 export type DeleteProductsRequest = {
-  products_ids: number[];
+  productsIds: number[];
 };
 
 @injectable()
@@ -16,8 +16,8 @@ export class DeleteProductsHandler
     this.productRepo = productRepo;
   }
   async execute(request: DeleteProductsRequest): Promise<void> {
-    const { products_ids } = request;
+    const { productsIds } = request;
 
-    await this.productRepo.deleteManyProducts(products_ids);
+    await this.productRepo.deleteManyProducts(productsIds);
   }
 }
