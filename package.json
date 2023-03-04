@@ -10,7 +10,8 @@
     "typeorm": "npx typeorm-ts-node-commonjs --dataSource src/configs/DataSource.ts",
     "typeorm:run": "yarn typeorm migration:run",
     "typeorm:revert": "yarn typeorm migration:revert",
-    "migration:create": "typeorm migration:create"
+    "migration:create": "typeorm migration:create",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",

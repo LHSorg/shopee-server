@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Request, Response } from "express";
 import { AppDataSource } from "../configs/DataSource";
 import { validate } from "class-validator";
