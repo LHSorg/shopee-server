@@ -1,5 +1,5 @@
 import { AtLeast, CreateProduct } from "../../commons/types";
-import { Product } from "../../domain/entities/product";
+import Product from "../../domain/entities/product";
 
 export interface IProductRepository {
   listAllProducts(): Promise<Product[]>;

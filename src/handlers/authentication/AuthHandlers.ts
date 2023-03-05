@@ -1,4 +1,4 @@
-import * as jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import { validate } from "class-validator";
 import { User } from "../../domain/entities/user";
 import config from "../../configs/config";

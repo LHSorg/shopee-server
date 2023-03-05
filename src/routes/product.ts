@@ -71,9 +71,9 @@ export class ProductRoutes {
       checkRole(["ADMIN"]),
       async (req, res, next) => {
         try {
-          const { product }: UpdateProductRequest = req.body;
+          const Product: UpdateProductRequest = req.body;
 
-          await this.updateProductHandler.execute({ product });
+          await this.updateProductHandler.execute(Product);
           res.status(204).send();
         } catch (error) {
           next(error);

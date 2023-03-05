@@ -1,4 +1,4 @@
-import { Product } from "../../domain/entities/product";
+import Product from "../../domain/entities/product";
 import { IProductRepository } from "../../domain/ports/product";
 import { injectable } from "tsyringe";
 import { AppDataSource } from "../../configs/DataSource";

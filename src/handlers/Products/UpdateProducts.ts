@@ -2,7 +2,7 @@ import { IProductRepository } from "../../domain/ports/product";
 import { AtLeast } from "./../../commons/types";
 import { Handler } from "./../../commons/handler";
 import { inject, injectable } from "tsyringe";
-import { Product } from "../../domain/entities/product";
+import Product from "../../domain/entities/product";
 
 export type UpdateProductRequest = {
   product: AtLeast<Product, "id">;
