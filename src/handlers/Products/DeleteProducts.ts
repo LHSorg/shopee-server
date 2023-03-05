@@ -1,4 +1,4 @@
-import { IProductRepository } from "@app/domain/ports/product";
+import { IProductRepository } from "../../domain/ports/product";
 import { Handler } from "./../../commons/handler";
 import { inject, injectable } from "tsyringe";
 

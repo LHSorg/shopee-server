@@ -13,8 +13,8 @@ import {
 import { ListProductsHandler } from "./../handlers/Products/ListProducts";
 import { Router } from "express";
 import { inject, injectable } from "tsyringe";
-import { checkJwt } from "@app/middlewares/checkJwt";
-import { checkRole } from "@app/middlewares/checkRole";
+import { checkJwt } from "../middlewares/checkJwt";
+import { checkRole } from "../middlewares/checkRole";
 
 @injectable()
 export class ProductRoutes {
