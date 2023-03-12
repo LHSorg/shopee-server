@@ -1,12 +1,12 @@
-import * as jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import { validate } from "class-validator";
 import { User } from "../../domain/entities/user";
 import config from "../../configs/config";
-import { Handler } from "@app/commons/handler";
+import { Handler } from "../../commons/handler";
 import { inject, injectable } from "tsyringe";
 import { HttpException } from "../../commons/errors";
 import { StatusCodes } from "http-status-codes";
-import { IUserRepository } from "@app/domain/ports/user";
+import { IUserRepository } from "../../domain/ports/user";
 
 export type AuthLoginRequest = {
   username: string;

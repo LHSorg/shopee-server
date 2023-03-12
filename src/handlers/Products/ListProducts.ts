@@ -1,6 +1,6 @@
-import { IProductRepository } from "@app/domain/ports/product";
+import { IProductRepository } from "../../domain/ports/product";
 import { Handler } from "./../../commons/handler";
-import { Product } from "@app/domain/entities/product";
+import Product from "../../domain/entities/product";
 import { inject, injectable } from "tsyringe";
 
 export type ListProductsRequest = object;

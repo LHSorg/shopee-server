@@ -1,9 +1,9 @@
-import { Product } from "@app/domain/entities/product";
-import { IProductRepository } from "@app/domain/ports/product";
+import Product from "../../domain/entities/product";
+import { IProductRepository } from "../../domain/ports/product";
 import { injectable } from "tsyringe";
-import { AppDataSource } from "@app/configs/DataSource";
+import { AppDataSource } from "../../configs/DataSource";
 import { In } from "typeorm";
-import { CreateProduct } from "@app/commons/types";
+import { CreateProduct } from "../../commons/types";
 
 @injectable()
 export class ProductRepository implements IProductRepository {

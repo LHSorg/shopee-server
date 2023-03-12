@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
 @Entity("products")
-export class Product {
+class Product {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -20,3 +20,5 @@ export class Product {
   @Column()
   shopee_url: string;
 }
+
+export default Product;

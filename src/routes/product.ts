@@ -13,8 +13,8 @@ import {
 import { ListProductsHandler } from "./../handlers/Products/ListProducts";
 import { Router } from "express";
 import { inject, injectable } from "tsyringe";
-import { checkJwt } from "@app/middlewares/checkJwt";
-import { checkRole } from "@app/middlewares/checkRole";
+import { checkJwt } from "../middlewares/checkJwt";
+import { checkRole } from "../middlewares/checkRole";
 
 @injectable()
 export class ProductRoutes {
@@ -71,9 +71,9 @@ export class ProductRoutes {
       checkRole(["ADMIN"]),
       async (req, res, next) => {
         try {
-          const { product }: UpdateProductRequest = req.body;
+          const Product: UpdateProductRequest = req.body;
 
-          await this.updateProductHandler.execute({ product });
+          await this.updateProductHandler.execute(Product);
           res.status(204).send();
         } catch (error) {
           next(error);

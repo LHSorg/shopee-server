@@ -1,5 +1,5 @@
 import { User } from "../../domain/entities/user";
-import { IUserRepository } from "@app/domain/ports/user";
+import { IUserRepository } from "../../domain/ports/user";
 import { injectable } from "tsyringe";
 import { AppDataSource } from "../../configs/DataSource";
 
